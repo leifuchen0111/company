@@ -7,7 +7,7 @@ return array(
     'DB_NAME' => 'route',
     'DB_PWD' => '',
     'DB_PREFIX' => 'rou_',
-    'DB_FIELDS_CACHE' => true,
+    'DB_FIELDS_CACHE' => false,
 
     'DEFAULT_MODULE' => 'Home',
     'DEFAULT_CONTROLLER' => 'ApMain',
