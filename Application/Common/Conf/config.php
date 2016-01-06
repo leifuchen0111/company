@@ -1,13 +1,13 @@
 <?php
 return array(
-	//数据库配置
+	//数据库配置d
 	'DB_TYPE' => 'mysql',
     'DB_HOST' => 'localhost',
     'DB_USER' => 'root',
     'DB_NAME' => 'route',
     'DB_PWD' => '',
     'DB_PREFIX' => 'rou_',
-    'DB_FIELDS_CACHE' => false,
+    'DB_FIELDS_CACHE' => true,
 
     'DEFAULT_MODULE' => 'Home',
     'DEFAULT_CONTROLLER' => 'ApMain',
