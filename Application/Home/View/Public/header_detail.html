@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>路由管理后台</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<meta content="" name="description" />
+
+	<meta content="" name="author" />
+
+	<link href="
+	/min/?f=__PUBLIC__/css/bootstrap.min.css,
+	__PUBLIC__/css/bootstrap-responsive.min.css,
+	__PUBLIC__/css/font-awesome.min.css,
+	__PUBLIC__/css/style-metro.min.css,
+	__PUBLIC__/css/style.min.css,
+	__PUBLIC__/css/style-responsive.min.css,
+	__PUBLIC__/css/default.min.css,
+	__PUBLIC__/css/uniform.default.min.css,
+	__PUBLIC__/css/select2_metro.min.css,
+	__PUBLIC__/css/DT_bootstrap.min.css,
+	__PUBLIC__/css/bootstrap-toggle-buttons.min.css
+	" rel="stylesheet" type="text/css"/>
+	<script src="__PUBLIC__/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+	<!-- BEGIN HEADER -->
+
+	<div class="header navbar navbar-inverse navbar-fixed-top">
+
+		<!-- BEGIN TOP NAVIGATION BAR -->
+
+		<div class="navbar-inner">
+
+			<div class="container-fluid">
+
+				<!-- BEGIN LOGO -->
+
+				<a class="brand" href="/">
+
+				<!--<img src="__PUBLIC__/image/logo.png" alt="logo" />-->
+				&nbsp;路由器管理后台
+
+				</a>
+
+				<!-- END LOGO -->
+
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+				<img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+
+				</a>          
+
+				<!-- END RESPONSIVE MENU TOGGLER -->            
+
+				<!-- BEGIN TOP NAVIGATION MENU -->              
+
+				<ul class="nav pull-right">
+
+					<neq name="Think.session.userId" value="1">
+					<li class="dropdown user">
+
+						<button onclick="location='{:U('Tool/Api/download')}?name=readme.doc'" class="btn blue"><i class="icon-file"></i>&nbsp;&nbsp;下载使用文档</button>
+
+					</li>
+					<else/>
+					<li class="dropdown user">
+
+						<button class="btn blue" onclick="location='{:U('Dashboard/postSysnews')}'"><i class="icon-comment-alt"></i>&nbsp;&nbsp;发布系统消息</button>
+
+					</li>
+					</neq>
+					 <li class="dropdown user">
+
+						<button onclick="location='{:U('Public/delCache')}'" class="btn blue"><i class="icon-trash"></i>&nbsp;&nbsp;清除缓存</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button onclick="location='{:U('User/profile')}'" class="btn blue"><i class="icon-user"></i>&nbsp;&nbsp;个人中心</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button class="btn blue" onclick="window.history.go(-1)"><i class="icon-step-backward"></i>&nbsp;&nbsp;返回</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button onclick="location='{:U('Public/logOut')}'" class="btn blue"><i class="icon-ban-circle"></i>&nbsp;&nbsp;退出</button>
+
+					</li>
+
+					<!-- END USER LOGIN DROPDOWN -->
+
+				</ul>
+
+				<!-- END TOP NAVIGATION MENU --> 
+
+			</div>
+
+		</div>
+
+		<!-- END TOP NAVIGATION BAR -->
+
+	</div>
+
+	<!-- END HEADER -->
+
+	<!-- BEGIN CONTAINER -->
+
+	<div class="page-container row-fluid">
+
+		<!-- BEGIN SIDEBAR -->
+
+		<div class="page-sidebar nav-collapse collapse">
+
+			<!-- BEGIN SIDEBAR MENU -->        
+
+			<ul class="page-sidebar-menu">
+
+				<li>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+					<div class="sidebar-toggler hidden-phone"></div>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+				</li>
+
+				<li class="start ">
+
+					<a href="/">
+
+					<i class="icon-home"></i> 
+
+					<span class="title">首页</span>
+
+					</a>
+
+				</li>
+
+				
+				<li class="<eq name="Think.const.MODULE_NAME" value="ApMain">open</eq>">
+					<a href="javascript:;">
+					<i class="icon-cogs"></i> 
+					<span class="title">路由信息</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu"<eq name="Think.const.MODULE_NAME" value="ApMain">style="display:block;"</eq>>
+						<li >
+							<a href="{:U('ApMain/detail')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								基本/实时信息
+							</a>
+
+						</li>
+					</ul>
+				</li>
+				
+				<li class="<eq name="Think.const.MODULE_NAME" value="Apconf">open</eq>">
+					<a href="javascript:;">
+					<i class="icon-cogs"></i> 
+					<span class="title">配置项</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu" <eq name="Think.const.MODULE_NAME" value="Apconf">style="display:block;"</eq>>
+						<li >
+							<a href="{:U('Apconf/baseConf')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								基本配置
+							</a>
+
+						</li>
+						<li >
+							<a href="{:U('Ssid/ssidList')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								SSID 列表
+							</a>
+
+						</li>
+						<li >
+							<a href="{:U('Ssid/ssidAdd')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								添加SSID
+							</a>
+
+						</li>
+					</ul>
+				</li>
+				
+				<li class="<eq name="Think.const.MODULE_NAME" value="Mac">open</eq>">
+					<a href="javascript:;">
+					<i class="icon-cogs"></i> 
+					<span class="title">上网用户管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu" <eq name="Think.const.MODULE_NAME" value="Mac">style="display:block;"</eq>>
+						<!--<li >
+							<a href="{:U('Mac/macWhite')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								用户白名单
+							</a>
+
+						</li>-->
+						<!--<li >
+							<a href="{:U('Mac/macScan')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								人流统计
+							</a>
+
+						</li>-->
+						<li >
+							<a href="{:U('Mac/macOnline')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								在线用户
+							</a>
+
+						</li>
+						<!--<li >
+							<a href="{:U('Mac/macHistory')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								历史用户
+							</a>
+
+						</li>-->
+					</ul>
+				</li>
+				
+				<li class=" <eq name="Think.const.MODULE_NAME" value="Url">open</eq>">
+					<a href="javascript:;">
+					<i class="icon-cogs"></i> 
+					<span class="title">URL管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu" <eq name="Think.const.MODULE_NAME" value="Url">style="display:block;"</eq>>
+						<li >
+							<a href="{:U('Url/urlWhite')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								URL白名单
+							</a>
+
+						</li>
+						<!--<li >
+							<a href="{:U('Url/urlHistory')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								访问记录
+							</a>
+
+						</li>-->
+					</ul>
+				</li>
+				<li class="<eq name="Think.const.MODULE_NAME" value="WebMag">open</eq>">
+					<a href="javascript:;">
+					<i class="icon-cogs"></i> 
+					<span class="title">自媒体</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu" <eq name="Think.const.MODULE_NAME" value="WebMag">style="display:block;"</eq>>
+						<li >
+							<a href="{:U('WebMag/weblist')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								站点列表
+							</a>
+
+						</li>
+						<li >
+							<a href="{:U('WebMag/webAdd')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								新建站点
+							</a>
+
+						</li>
+						<li >
+							<a href="{:U('WebMag/webUpload')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">
+								上传自定义模板
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<!-- END SIDEBAR MENU -->
+
+		</div>
+
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content" >
+
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<div id="portlet-config" class="modal hide" style="display:none;box-shadow:0 0 0 2000px rgba(0,0,0,0.5);">
+
+				<div class="modal-header">
+
+					<button data-dismiss="modal" class="close" type="button"></button>
+
+					<h3></h3>
+
+				</div>
+
+				<div class="modal-body">
+
+					<p></p>
+
+				</div>
+
+			</div>
+
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<!-- BEGIN PAGE CONTAINER-->        
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN STYLE CUSTOMIZER -->
+
+						<div class="color-panel hidden-phone">
+
+							<div class="color-mode-icons icon-color"></div>
+
+							<div class="color-mode-icons icon-color-close"></div>
+
+							<div class="color-mode">
+
+								<p>主题颜色</p>
+
+								<ul class="inline">
+
+									<li class="color-black current color-default" data-style="default"></li>
+
+									<li class="color-blue" data-style="blue"></li>
+
+									<li class="color-brown" data-style="brown"></li>
+
+									<li class="color-purple" data-style="purple"></li>
+
+									<li class="color-grey" data-style="grey"></li>
+
+									<li class="color-white color-light" data-style="light"></li>
+
+								</ul>
+
+								<label>
+
+									<span>布局</span>
+
+									<select class="layout-option m-wrap small">
+
+										<option value="fluid" selected>流体布局</option>
+
+										<option value="boxed">盒子布局</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>头部</span>
+
+									<select class="header-option m-wrap small">
+
+										<option value="fixed" selected>流体布局</option>
+
+										<option value="default">默认</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>侧栏</span>
+
+									<select class="sidebar-option m-wrap small">
+
+										<option value="fixed">流体布局</option>
+
+										<option value="default" selected>默认</option>
+
+									</select>
+
+								</label>
+
+								<label>
+
+									<span>底部</span>
+
+									<select class="footer-option m-wrap small">
+
+										<option value="fixed">流体布局</option>
+
+										<option value="default" selected>默认</option>
+
+									</select>
+
+								</label>
+
+							</div>
+
+						</div>
+
+						<!-- END BEGIN STYLE CUSTOMIZER -->  
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+ 							 <li>
+
+								<i class="icon-home"></i>
+
+								<a href="/">首页</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+							<li>
+
+								<a href="{:U('ApMain/aplist')}">AP列表</a>
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="javascript:;">{$apInfo.hwserial}</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>

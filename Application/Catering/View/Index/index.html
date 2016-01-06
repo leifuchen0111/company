@@ -1,0 +1,76 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>网站基本信息</div>
+
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" class="form-horizontal" method="post">
+
+					<input type="hidden" name="id" value="{$data.id}">
+					<div class="control-group">
+
+						<label class="control-label">站点标题</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$data.web_name}" class="span6 m-wrap" name="web_name">
+
+							<span class="help-inline">用于显示网站标题</span>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">模板名称<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input readonly type="text" value="{$data.tpl_style}" required class="span6 m-wrap">
+
+							<span class="help-inline">该项不可修改</span>
+
+						</div>
+
+					</div>
+
+					
+					
+
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

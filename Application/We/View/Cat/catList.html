@@ -1,0 +1,90 @@
+<div class="row-fluid">
+
+	<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box grey">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>分类列表</div>
+
+				<div class="actions">
+
+					<a href="{:U('Category/catAdd')}?webid={$webHeader.id}&type={$data.type}" class="btn blue"><i class="icon-pencil"></i> 添加</a>
+
+					 <div class="btn-group">
+
+						<a class="btn green" href="#" data-toggle="dropdown">
+
+						<i class="icon-cogs"></i> 工具
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu pull-right">
+
+							<li id="del" action="{:U('Category/delCat')}/"><a href="javascript:;"><i class="icon-trash"></i> 删除</a></li>
+							
+							<li class="divider"></li>
+
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-striped table-bordered table-hover" id="sample_2">
+
+					<thead>
+
+						<tr>
+
+							<th style="width:8px;"><input type="checkbox" class="group-checkable checkboxes" data-set="#sample_2 .checkboxes" /></th>
+
+							<th>ID</th>
+
+							<th>分类名称</th>
+							
+							<th class="hidden-480">操作</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<volist name="cats" id="ap">
+						<tr class="odd gradeX">
+
+							<td><input type="checkbox" class="checkboxes" value="{$ap.id}" /></td>
+							<td>{$ap.id}</td>
+
+							<td>{$ap.cat_name}</td>
+
+
+							<td class="hidden-480">
+								<a href="{:U('Category/CatEdit')}?id={$ap.cid}&webid={$webHeader.id}">编辑</a>
+
+							</td>
+
+						</tr>
+						</volist>
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+</div>

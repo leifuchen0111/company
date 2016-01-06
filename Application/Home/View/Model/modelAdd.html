@@ -1,0 +1,158 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>上传模板</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+						<div class="control-group">
+
+							<label class="control-label">模板文件<span class="required">*</span></label>
+
+							<div class="controls">
+
+								<div class="fileupload fileupload-new" data-provides="fileupload">
+
+									<div class="input-append">
+
+										<div class="uneditable-input">
+
+											<i class="icon-file fileupload-exists"></i> 
+
+											<span class="fileupload-preview"></span>
+
+										</div>
+
+										<span class="btn btn-file">
+
+										<span class="fileupload-new">选择文件</span>
+
+										<span class="fileupload-exists">修改</span>
+
+										<input type="file" name="model" class="default" required />
+
+										</span>
+
+										<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+
+									</div>
+
+								</div>
+
+							</div>
+							
+						</div>
+						
+						<div class="control-group">
+
+							<label class="control-label">模板截图<span class="required">*</span></label>
+
+							<div class="controls">
+
+								<div class="fileupload fileupload-new" data-provides="fileupload">
+
+									<div class="input-append">
+
+										<div class="uneditable-input">
+
+											<i class="icon-file fileupload-exists"></i> 
+
+											<span class="fileupload-preview"></span>
+
+										</div>
+
+										<span class="btn btn-file">
+
+										<span class="fileupload-new">选择文件</span>
+
+										<span class="fileupload-exists">修改</span>
+
+										<input type="file" name="screenshot" class="default" required />
+
+										</span>
+
+										<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+
+									</div>
+
+								</div>
+
+							</div>
+							
+						</div>
+						
+							
+						<div class="control-group">
+
+							<label class="control-label">模板名称<span class="required">*</span></label>
+
+							<div class="controls">
+
+								<input type="text" class="span6 m-wrap" required placeholder="模板名称" name="tpl">
+
+								<span class="help-inline">6-16长度</span>
+								
+							</div>
+
+						</div>
+						
+						<div class="control-group">
+
+							<label class="control-label">模板介绍</label>
+
+							<div class="controls">
+
+								<textarea name="desc" maxlength="100" class="large m-wrap" rows="3"></textarea>
+
+							</div>
+
+						</div>
+						
+						<div class="control-group">
+							
+							<div class="form-actions">
+
+								<input type="submit" class="btn blue" value="上传">
+
+							</div>
+
+						</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

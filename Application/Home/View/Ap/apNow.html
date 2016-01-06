@@ -1,0 +1,152 @@
+<div class="tab-pane active">
+
+	<div class="portlet box blue">
+
+		<div class="portlet-title">
+
+			<div class="caption"><i class="icon-reorder"></i>实时信息</div>
+		</div>
+
+		<div class="portlet-body form">
+
+			<!-- BEGIN FORM-->
+
+			<div class="form-horizontal form-view">
+
+				<div class="row-fluid">
+
+					<div class="span6 ">
+
+						<div class="control-group">
+
+							<label class="control-label">状态:</label>
+
+							<div class="controls">
+
+								<span class="text">
+									<php> if(time()-$data['apnow']['lasttime']<200){</php>
+										<label class="label label-success">运行中..</label>
+									<php>}else{</php>
+										<label class="label label-important">异常</label>
+									<php>}</php>
+
+								</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!--/span-->
+
+					<div class="span6 ">
+
+						<div class="control-group">
+
+							<label class="control-label">连接用户数:</label>
+
+							<div class="controls">
+
+								<span class="text">{$data.apnow.onUser}</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!--/span-->
+
+				</div>
+
+				<!--/row-->
+
+				<div class="row-fluid">
+
+					<div class="span6 ">
+						
+						<div class="control-group">
+
+							<label class="control-label">运行时间:</label>
+
+							<div class="controls">
+
+								<span class="text">{$data.apnow.ltime|str_time}</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!--/span-->
+					<div class="span6 ">
+
+						<div class="control-group">
+
+							<label class="control-label">认证用户数:</label>
+
+							<div class="controls">                                                
+
+								<span class="text bold">{$data.current}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Mac/macOnline')}?gw_id={$apInfo.gw_id}&id={$apInfo.id}">查看</a></span>
+
+							</div>
+
+						</div>
+
+					</div>
+					<!--/span-->
+
+				</div>
+
+				<!--/row-->        
+
+				<div class="row-fluid">
+
+					<div class="span6 ">
+
+						<div class="control-group">
+
+							<label class="control-label">CPU占用:</label>
+
+							<div class="controls">
+
+								<span class="text bold">{$data.apnow.cpu|float_to_percent}</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!--/span-->
+
+					<div class="span6 ">
+
+						<div class="control-group">
+
+							<label class="control-label">内存占用:</label>
+
+							<div class="controls">                                                
+
+								<span class="text bold">{$data.apnow.free|float_to_percent}</span>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!--/span-->
+
+				</div>
+			</div>
+
+			<!-- END FORM-->  
+
+		</div>
+
+	</div>
+
+</div>

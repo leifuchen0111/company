@@ -1,0 +1,130 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>修改分类</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" method="post" enctype="multipart/form-data" id="form_sample_1" class="form-horizontal" novalidate="novalidate">
+					
+					<input type="hidden" name="webid" value="{$webHeader.id}">
+					
+					<input type="hidden" name="type" value="{$cate.type}">
+
+					<input type="hidden" name="id" value="{$cate.id}">
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息有误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写成功
+
+							</div>
+
+							<div class="tab-pane active" id="tab1">
+
+								<h3 class="block">填写分类信息</h3>
+
+								<div class="control-group">
+
+									<label class="control-label">分类名称<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" class="span6 m-wrap" required placeholder="分类名称" value="{$cate.cat_name}" name="cat_name">
+
+									</div>
+
+								</div>
+								<eq name="type" value="app">
+									<div class="control-group">
+	
+										<label class="control-label">所属分类<span class="required">*</span></label>
+	
+										<div class="controls">
+											<label for="">
+											<input type="radio" class="span6 m-wrap" value="game" required name="type">游戏
+											</label>
+											<label>
+											<input type="radio" " class="span6 m-wrap" required value="app" name="type">应用
+											</label>
+										</div>
+	
+									</div>
+								</eq>
+								<div class="control-group">
+
+									<label class="control-label">封面图片<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="file" class="span6 m-wrap" required name="cover_img">
+
+									</div>
+
+								</div>
+								<neq name="cate.url" value="">
+									<img src="{$cate.url}">
+								</neq>
+
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+							<input type="submit" value="提交" class="btn blue" />
+
+						</div>
+
+					</div>
+		
+
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>

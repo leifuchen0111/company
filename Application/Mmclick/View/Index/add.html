@@ -1,0 +1,64 @@
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <div class="tabbable tabbable-custom boxless">
+
+            <div class="tab-content">
+
+                <div class="tab-pane active" id="tab_4">
+
+                    <div class="portlet box blue">
+
+                        <div class="portlet-title">
+
+                            <div class="caption"><i class="icon-reorder"></i>mmclick图片上传</div>
+                            <div class="tools">
+                            </div>
+
+                        </div>
+
+                        <div class="portlet-body form">
+
+                            <!-- BEGIN FORM-->
+
+                            <form action="{:U('Index/save')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+
+
+                                <div class="control-group">
+
+                                    <label class="control-label">上传图片</label>
+
+                                    <div class="controls">
+
+                                        <input type="file" name="image"  class="form-control">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions">
+
+                                    <input type="hidden" name="gw_id" value="{$gw_id}" />
+
+                                    <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存</button>
+
+                                </div>
+
+                            </form>
+
+                            <!-- END FORM-->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

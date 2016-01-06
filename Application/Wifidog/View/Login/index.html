@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>认证-页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/Wifidog/bootstrap.css" rel="stylesheet">    
+    <link href="__PUBLIC__/Wifidog/siqnin.css" rel="stylesheet">
+    <script src="__PUBLIC__/Wifidog/jquery.js"></script>
+    <script>
+
+		function sendCode(){
+			var surpTime = 60;
+			var t;		
+			$("#sendCode").attr('href','javascript:;')
+			t = setInterval(function(){
+				
+				$("a[class*='sendCode']").text('重新发送('+surpTime+')');
+				if(surpTime<=0){
+					clearInterval(t);
+					$("a[class*='sendCode']").attr('id','sendCode');
+					$("#sendCode").text('获取验证码');
+					$("#sendCode").attr('href','javascript:sendCode();');					
+				}
+				surpTime--;
+				}
+			,1000);
+			var regex = /^1[3|4|5|8]{1}[0-9]{9}$/;
+		    var phone = $("#phone").val();
+			if(!regex.test(phone)){
+				alert('请输入正确的手机号码');
+				return false;
+			}else{
+				$.ajax({
+					url:'/Wifidog/Api/sendCode/phone/'+phone,
+					type:'get',
+					dataType:'json',
+					success:function(data){
+						if(data.state==1){
+							
+						}
+					},
+					error:function(){
+						console.log('服务器无响应');
+					}
+				})
+			
+			}
+		}
+		
+		function show(e){
+			$("div[id*='by']").css('display','none');
+			$('#'+e).css('display','block');
+			
+		}
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="navbar navbar-default border navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		
+            <!-- <span class="sr-only" onclick="show('byPhone')">手机认证</span>
+            <span class="icon-bar" onclick="show('byWb')">微信认证</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> -->
+          </button>
+          <a class="navbar-brand" style="font-size: 14px; color: #009933; font-weight: bold;" href="javascript:;">WIFI认证</a>
+        </div>
+      </nav>    
+	  
+	  <style>
+    body{
+        background-color: #FFFFFF;
+    }
+    </style>
+    <div class="container top">
+	
+		<span>请选择验证方式</span>
+			<php>if(in_array('ph',$type)){</php>
+				<button class="btn btn-success" onclick="show('byPhone')">手机认证</button>
+			<php>}</php>
+			<php>if(in_array('wx',$type)){</php>
+				<button class="btn btn-success" onclick="show('byWb')">微信认证</button> <br />
+			<php>}</php>
+		<php>if(in_array('ph',$type)){</php>
+        <div class="well" id="byPhone" >
+            <form action="__ACTION__" method="post" accept-charset="utf-8" class="form-horizontal" role="form">
+				<input type="hidden" name="type" value="p"/>
+				<div class="form-group">
+                    <label class="col-sm-offset-2 col-sm-2 control-label">手机号</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control border" id="phone" name="account" autocomplete="off" value="" required="true" maxlength="11" placeholder="手机号" autofocus="true">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-2 col-sm-2 control-label">验证码</label>
+                    <div class="col-sm-3">
+                        <input type="test" class="form-control border" name="code" autocomplete="off" placeholder="请输入验证码"  required="true">
+                    </div>
+					<div class="col-sm-3">
+                        <a href="javascript:sendCode();" class="btn btn-warning border sendCode"  id="sendCode" >获取验证码</a>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-2">
+                        <button class="btn btn-success border" type="submit">登 录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<php>}</php>
+		<php>if(in_array('wx',$type)){</php>
+		<div class="well" id="byWb" style="display:none" >
+                    <input type="hidden" name="type" value="wx" />
+                    <h5>请关注本店微信公众号:<code>{$wx_name}</code>，即可享受高速上网服务</h5>
+                    <img src="{$qrcode}" width="300" style="margin:auto;display:block;">
+        </div>
+		<php>}</php>
+    </div>
+</div><div class="footer">
+     <div class="container">
+      <p class="text-center text">Copyright © 2014 <a href="javascript:;" target="_black">xxx系统</a> v 1.0 By <a href="javascript:;" target="_black">xxx</a></p>
+    </div>
+</div>     
+  </body>
+</html>

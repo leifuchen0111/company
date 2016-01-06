@@ -1,0 +1,100 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>下载地址</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" class="form-horizontal" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="{$link.id}">
+					<input type="hidden" name="webid" value="{$webid}">
+
+
+					<div class="control-group">
+
+						<label class="control-label">android版地址<span class="required">*</span></label>
+
+						<div  class="controls">
+
+							<input type="text" class="form-control" name="android" value="{$link.android}">
+							<span class="help-inline">如果为下载链接，请将地址填入此处</span>
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">android版文件<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="file" class="form-control" name="android">
+							<span class="help-block alert-danger">此处与下载链接两项填写一项即可，如果都填写，默认为文件格式</span>
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">选择andriod下载格式<span class="required">*</span></label>
+
+						<div class="controls">
+							<label class="radio">
+								<input type="radio" value="link" <eq name="link.type" value="link">checked</eq> name="type">下载链接
+							</label>
+							<label class="radio">
+
+								<input type="radio" value="file" <eq name="link.type" value="file">checked</eq> name="type">下载文件
+							</label>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">IOS版地址<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text" value="{$link.ios}" required class="span6 m-wrap" name="ios">
+
+							<span class="help-inline">请填写在appstore的下载地址</span>
+
+						</div>
+
+					</div>
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

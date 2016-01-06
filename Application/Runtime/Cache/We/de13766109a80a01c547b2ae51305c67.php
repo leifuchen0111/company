@@ -1,0 +1,134 @@
+<?php if (!defined('THINK_PATH')) exit();?><div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>新闻添加</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="/we/news/newadd" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<input type="hidden" name="id" value="<?php echo ($webHeader["id"]); ?>">
+					<div class="control-group">
+
+						<label class="control-label">新闻标题<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text"  class="span6 m-wrap" name="title" required>
+
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">分类<span class="required">*</span></label>
+
+						<div class="controls">
+							<select name="cat_id" class="w-wrap span6">
+								<?php if(is_array($cate)): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><option value="<?php echo ($v["id"]); ?>"><?php echo ($v["cat_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+							</select>
+
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">排序<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text"  required class="span6 m-wrap" name="order">
+
+							<span class="help-inline">指定显示的先后顺便，1-999之间的整数</span>
+
+						</div>
+
+					</div>	
+					
+					<div class="control-group">
+
+						<label class="control-label">是否封面显示</label>
+
+						<div class="controls">
+							<label class="span2"> 
+							<input type="radio" class="span6 m-wrap" name="ishot" value="1">是
+							</label>
+							&nbsp;&nbsp;
+							<label class="span2"> 
+								<input type="radio"  checked class="span6 m-wrap" name="ishot" value="0">否
+							</label>
+							
+							<span class="help-inline">封面最多显示6条，多余的可能无法正常显示在封面</span>
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">封面图片</label>
+
+						<div class="controls">
+							<input type="file" name="img" />
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">新闻内容<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<textarea name="content" id="kindedit"></textarea>
+
+						</div>
+
+					</div>
+							
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

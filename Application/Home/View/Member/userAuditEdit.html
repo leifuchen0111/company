@@ -1,0 +1,176 @@
+
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>新用户资料</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<input type="hidden" name="id" value="{$data.id}">
+					<div class="control-group">
+
+						<label class="control-label">公司名称</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.company_name}" readonly class="span6 m-wrap" name="title" />
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">公司地址</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.address}" readonly class="span6 m-wrap" name="title">
+
+							
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">联系人</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.contact_name}" readonly class="span6 m-wrap" name="title">
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">联系电话</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.phone}" readonly class="span6 m-wrap" name="title">
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">联系人身份证号码</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.idcard}" readonly class="span6 m-wrap" name="title">
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">组织机构代码</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.organization_code}" readonly class="span6 m-wrap" name="title">
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">联系邮箱</label>
+
+						<div class="controls">
+
+							<input type="text" value="{$user.email}" readonly class="span6 m-wrap" name="title">
+
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">组织机构扫描件</label>
+
+						<div class="controls">
+
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+
+								<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+
+									<a href="{$user.organization_img}"><img src="{$user.organization_img}" alt="营业执照"></a>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">营业执照</label>
+
+						<div class="controls">
+
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+
+								<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+
+									<a href="{$user.business_img}"><img src="{$user.business_img}" alt="营业执照"></a>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="control-group">
+						
+						<div class="form-actions">
+							<input type="hidden" name="id" value="{$user.id}">
+							<a href="__URL__/audit/act/pass/id/{$user.id}" class="btn green ">通过</a>
+							<a href="__URL__/audit/act/refuse/id/{$user.id}" class="btn yellow" style="margin:0 50px;">驳回</a>
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

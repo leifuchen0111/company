@@ -1,0 +1,100 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box green">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>权限管理</div>
+
+				<div class="tools">
+
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				   <form action="__ACTION__" method="post">
+				  
+				    <div class="layout_left_menu" style="width:94%;">
+				    	
+				    	<div class="choice">
+				    	 	
+				    	 	   <foreach name="actions" item="item">
+					    	 	 
+					    	 	 	 <fieldset id="test">
+							   		
+							   		 	<legend><input type="checkbox" id="all" class="all" name="act[]" <in name="item['id']" value="$id['a_id']">checked</in> value="{$item.id}"> {$item.action}</legend>
+							    	
+							    		<foreach name="item.cnav" item="i">
+							    	
+									    	<if condition="$i['p_id'] eq $item['id']">
+									   	   
+									   	  		<input class="simple_field label access" type="checkbox" <in name="i['id']" value="$id['a_id']">checked</in>  name="act[]" value="{$i.id}"><span class="label">{$i.action}</span><br/>
+									   	  
+									   	   </if>
+							   	 
+							   	 		</foreach>
+						  	
+						  			</fieldset><br/>
+				       	 	 
+				       	 	 </foreach>
+				       	 	 
+				       	 	 <input type="hidden" name="role_id" value="{$id.id}">
+				       	  	 
+				       	  	
+				       	</div>
+				       		
+				       	 	 <script>
+				       	  	 $(document).ready(function(){
+				       	  	 	$("input[class=all]").css("margin-top",'-30px')
+				       	  	 	$("input[class*=access]").click(function(){
+				       	  	 		console.log($(this).prop('checked'));
+				       	  	 		if($(this).prop('checked') == true){
+				       	  	 			$(this).parent().parent().parent().children().children().children().children().prop('checked',true);
+				       	  	 			$(this).parent().parent().parent().children().children().children().addClass('checked');
+				       	  	 		}
+				       	  	 	
+				       	  	 	})
+				       	  	 	
+				       	  	 })
+				       	  	 
+				       	  	</script>
+				    </div>
+				     <div class="form-actions clearfix">
+							
+						<input type="submit" value="提交" class="btn blue" />
+
+					</div>
+				    </form>
+				    <style type="text/css">
+				    	.choice{
+							margin: 20px auto;
+				    		width: 80%;
+				    	}
+				    	#test legend{
+							margin-left: -30px;
+				    	}
+				    	#test input{
+							
+				    	}
+				    </style>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

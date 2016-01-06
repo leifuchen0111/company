@@ -1,0 +1,153 @@
+<include file="Public:header" />
+<include file="Ap:index" />
+<div class="row-fluid">
+
+	<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box grey">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>历史用户</div>
+
+				<div class="actions">
+					 
+					<a href="{:U('Dashboard/online')}" class="btn green"><i class="icon-share-alt"></i> 查看在线用户</a>
+					
+
+					<div class="btn-group">
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-striped table-bordered table-hover" id="sample_2">
+
+					<thead>
+
+						<tr>
+
+							<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
+
+							<th>Id</th>
+
+							<th>Mac</th>
+
+							<th>更新时间</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+					
+						<volist name="macVisitHistory" id="v">
+						
+						<tr class="odd gradeX">
+
+							<td><input type="checkbox" class="checkboxes" value="{$v.id}" /></td>
+							<td>{$v.id}</td>
+
+							<td>{$v.mac}</td>
+
+							<td>{$v.stime|date="Y-m-d",###}</td>
+
+						</tr>
+						
+						</volist>
+					
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+</div>
+	<script src="__PUBLIC__/libraries/RGraph.common.core.js" ></script>
+    <script src="__PUBLIC__/libraries/RGraph.common.dynamic.js" ></script>
+    <script src="__PUBLIC__/libraries/RGraph.common.tooltips.js" ></script>
+    <script src="__PUBLIC__/libraries/RGraph.line.js" ></script>
+   
+   <h2>近30天认证用户走势图</h2>
+    <canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
+    
+    <script>
+        $(document).ready(function ()
+        {	
+        	url = '/Route/index.php//TableAjax/allApVisitor_30';
+        	$.ajax({
+        		url:url,
+        		type:'post',
+        		dataType:'json',
+        		success:function(json){
+        			 var data     = json.mac;
+        	            var tooltips = [];
+        	            
+        	            // Create the tooltips
+        	            for (var i=0; i<data.length; i+=1) {
+        	                tooltips[i] = '用户数: ' + String(data[i])
+        	            }
+
+        	            var line = new RGraph.Line({
+        	                id: 'cvs',
+        	                data: data,
+        	                options: {
+        	                    tooltips: {
+        	                        self: tooltips,
+        	                        highlight: false
+        	                    },
+        	                    colors: ['#058DC7'],
+        	                    filled: true,
+        	                    fillstyle: 'rgba(229,243,249,0.5)',
+        	                    tickmarks: 'filledcircle',
+        	                    background: {
+        	                        grid: {
+        	                            vlines: false,
+        	                            border: false,
+        	                            autofit: {
+        	                                numhlines: 1
+        	                            }
+        	                        }
+        	                    },
+        	                    shadow: true,
+        	                    linewidth: 3,
+        	                    gutter: {
+        	                        left: 50,
+        	                        right: 20
+        	                    },
+        	                    numxticks: 3,
+        	                    ylabels: {
+        	                        count: 1
+        	                    },
+        	                    axis: {
+        	                        color: '#aaa'
+        	                    },
+        	                    text: {
+        	                        color: '#aaa'
+        	                    },
+        	                    labels: json.time
+        	                }
+        	            })
+        	            
+        	            RGraph.ISOLD ? line.draw() : line.trace2();
+        		}
+        		
+        	})
+        	
+           
+            
+        })
+    </script>
+<include file="Public:footer" />

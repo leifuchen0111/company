@@ -1,0 +1,90 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>上传EXCEL文件</div>
+
+				<!--<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>-->
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('ApMain/import')}" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<div class="control-group">
+
+						<label class="control-label">选择文件</label>
+
+						<div class="controls">
+
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+
+								<div class="input-append">
+
+									<div class="uneditable-input">
+
+										<i class="icon-file fileupload-exists"></i>
+
+										<span class="fileupload-preview"></span>
+
+									</div>
+
+									<span class="btn btn-file">
+
+									<span class="fileupload-new">选择文件</span>
+
+									<span class="fileupload-exists">修改</span>
+
+									<input type="file"  name="import" class="default" />
+
+									</span>
+
+									<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="上传">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>
+

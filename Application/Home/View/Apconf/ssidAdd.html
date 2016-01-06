@@ -1,0 +1,148 @@
+<include file="Public:header_detail" />
+<include file="Public:detailDashboard" />
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>添加SSID</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" method="post" id="form_sample_1" class="form-horizontal">
+					
+					<input type="hidden" name="state" value="1">
+					
+					
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写错误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写正确
+
+							</div>
+
+							<div class="tab-pane active" id="tab1">
+
+								<div class="control-group">
+
+									<label class="control-label">SSID<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" pattern="\S{3,32}" class="span6 m-wrap" placeholder="Ssid" name="ssid">
+
+										<span class="help-inline">3-15位，严禁使用空格</span>
+
+									</div>
+
+								</div>
+
+								<div class="control-group">
+
+									<label class="control-label">频道<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<select class="large m-wrap" name="channel" required tabindex="1">
+											
+											<option value="5g">5g</option>
+											
+											<option value="2.4g">2.4g</option>
+
+										</select>
+										
+										<span class="help-inline">如果选择5g,请先确认您的AP支持5g</span>
+									
+									</div>
+
+								</div>
+								
+								<div class="control-group">
+
+									<label class="control-label">密码(<span class="required">可选</span>)</label>
+
+									<div class="controls">
+										
+										<input type="password" pattern="[0-9a-zA-Z]{8,15}" class="span6 m-wrap" name="psd">
+
+										<span class="help-inline">8-15位，不填表示不使用密码</span>
+									
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<label class="control-label">覆盖非通用SSID(<span class="required">可选</span>)</label>
+
+									<div class="controls">
+										
+										<input type="checkbox" value="1" class="span6 m-wrap"  name="delAll">
+
+										<span class="help-inline required"><strong>选择此项后，选中AP的所有非通用的SSID将不可用，请谨慎操作</strong></span>
+									
+									</div>
+
+								</div>
+								<input type="hidden" name="gw_id" value="{$apInfo.gw_id}">
+								
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+							
+							<input type="submit" value="添加" class="btn blue" />
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
+<include file="Public:footer_detail" />

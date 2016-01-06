@@ -1,0 +1,77 @@
+<include file="Public:header_detail" />
+	
+	<div class="row-fluid">
+
+		<div class="span12">
+
+			<!-- BEGIN PORTLET-->   
+
+			<div class="portlet box green">
+
+				<div class="portlet-title">
+
+					<div class="caption"><i class="icon-reorder"></i>站点复制</div>
+
+					<div class="tools">
+
+						<a href="javascript:;" class="collapse"></a>
+
+						<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+						<a href="javascript:;" class="reload"></a>
+
+						<a href="javascript:;" class="remove"></a>
+
+					</div>
+
+				</div>
+
+				<div class="portlet-body form">
+
+					<!-- BEGIN FORM-->
+
+					<form action="__ACTION__" method="post" class="form-horizontal">
+
+						<div class="control-group span12">
+
+							<label class="control-label">选择复制目标</label>
+
+							<div class="controls">
+
+								<select multiple="multiple" id="my_multi_select2" class="span6" name="ssid[]">
+									<foreach name="ap" item="v" key="k">
+										<optgroup label="{$k}">
+											
+											<foreach name="v" item="s">
+												
+												<option>{$k}_{$s}</option>
+											
+											</foreach>
+										</optgroup>
+									</foreach>
+								</select>
+								<span class="help-inline">请选择路由器和对应ssid</span>
+							</div>
+
+						</div>
+						
+						<div class="form-actions">
+							<input type="hidden" name="webid" value="{$id}">
+							<button type="submit" class="btn blue">提交</button>
+
+						</div>
+
+					</form>
+
+					<!-- END FORM-->  
+
+				</div>
+
+			</div>
+
+			<!-- END PORTLET-->
+
+		</div>
+
+	</div>
+<include file="Public:footer_detail" />

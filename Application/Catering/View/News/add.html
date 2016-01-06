@@ -1,0 +1,153 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>新闻添加</div>
+				<div class="actions">
+					<a href="{:U('News/news',array('gw_id'=>$gw_id,'webid'=>$webid))}" class="btn red"><i class="icon-long-arrow-left"></i>新闻列表</a>
+				</div>
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<input type="hidden" name="webid" value="{$webid}">
+					<input type="hidden" name="id" value="{$news.id}">
+
+					<div class="control-group">
+
+						<label class="control-label">分类<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<select name="category" required>
+								<volist name="cates" id="vo">
+									<option value="{$vo.id}" <eq name="news['category']" value="$vo['id']">selected</eq> >{$vo.category}</option>
+								</volist>
+							</select>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">标题<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text"  required class="span6 m-wrap" value="{$news.title}" name="title">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">作者<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text"  required class="span6 m-wrap" value="{$news.author}" name="author">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">排序</label>
+
+						<div class="controls">
+
+							<input type="text" class="span6 m-wrap" value="{$news.displayorder}" name="displayorder">
+
+							<span class="help-inline">指定显示的先后顺便，1-999之间的整数</span>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">描述</label>
+
+						<div class="controls">
+
+							<textarea class="large m-wrap" rows="3" name="desc">{$news.desc}</textarea>
+
+							<span class="help-block">请输入100字以内的描述</span>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">内容</label>
+
+						<div class="controls">
+
+							<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+								{$news.content}
+							</textarea>
+							<span class="help-block">如果需要插入外部资源，请将相应的域名设置为白名单</span>
+							<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+							<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+							<script>
+								var options = {
+									items:[
+											'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+											'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+											'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+											'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+											'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+											'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+											 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+											'anchor', 'link', 'unlink'
+											]
+
+								};
+
+								KindEditor.ready(function(K) {
+									window.editor = K.create('#editor_id',options);
+								});
+							</script>
+
+						</div>
+
+					</div>
+
+
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

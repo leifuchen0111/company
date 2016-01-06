@@ -1,0 +1,172 @@
+<include file="Public:header" />
+<include file="Ap:index" />
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>短信数量</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				
+					<div class="form-wizard">
+
+				
+
+						<div class="tab-content">
+
+							
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label span1">剩余短信</label>
+
+									<div class="controls">
+
+										<input type="text" value="{$udata.msgnum}" readonly class="span2 m-wrap">
+										
+										<button class="btn blue " id="buyMsg">点击购买</button>
+									
+									</div>
+
+								</div>
+
+							</div>
+							
+							
+					
+						</div>
+					
+						
+
+					</div>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
+<script>
+	$(document).ready(function(){
+		
+		$("#buyMsg").click(function(){
+			
+			$("div.buyMsg").css('display','block');
+		})
+	})
+</script>
+
+<!-- 购买短信  -->
+
+<div class="row-fluid buyMsg" style="display:none;">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>购买短信</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+					<form action="__ACTION__" method="post" id="form_sample_1" class="form-horizontal">
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label span1">购买数量</label>
+
+									<div class="controls">
+
+										<input type="number" min="100" step="100" max="9999" value="100" name="buy_num" data-validate="/^[1-9]{1}[0-9]{1,4}$/" class="span2 m-wrap">
+										
+										<button class="btn blue ">点击购买</button>
+									
+									</div>
+
+								</div>
+
+							</div>
+							
+							<div class="form-actions clearfix">
+							
+							<input type="submit" value="立即付款" class="btn blue" />
+
+						</div>
+					
+						</div>
+					
+						
+
+					</div>
+					
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
+<include file="Public:footer" />

@@ -1,0 +1,148 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>音乐添加</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__"  class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<div class="control-group">
+
+						<label class="control-label">音乐名称</label>
+
+						<div class="controls">
+
+							<input type="text" placeholder="音乐名称 " autofocus class="m-wrap span6"  name="name" value="{$apk.name}" required />
+
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">专辑</label>
+
+						<div class="controls">
+
+							<input type="text" placeholder="专辑" autofocus class="m-wrap span6"  name="album" value="{$apk.album}"  />
+
+						</div>
+
+					</div>
+					<div class="control-group">
+
+						<label class="control-label">歌手</label>
+
+						<div class="controls">
+
+							<input type="text" placeholder="歌手" autofocus class="m-wrap span6"  name="author" value="{$apk.author}"  />
+
+						</div>
+
+					</div>
+					
+					<div class="control-group">
+
+						<label class="control-label">上传音乐文件<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="file" class="m-wrap span6" name="apk" required />
+						
+						</div>
+
+					</div>
+										
+					<div class="control-group">
+
+						<label class="control-label">缩略图</label>
+
+						<div class="controls">
+
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+
+								<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+
+									<img src="{$data.logo}" alt="">
+
+								</div>
+
+								<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+
+								<div>
+
+									<span class="btn btn-file"><span class="fileupload-new">选择图片</span>
+
+									<span class="fileupload-exists">更换</span>
+
+									<input type="file" class="default" name="img"></span>
+
+									<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+
+									
+									
+								</div>
+
+							</div>
+
+							<span class="label label-important">注意:</span>
+
+							<span>
+
+							 	仅支持JPG,PNG,GIF格式，小于2M， 如果看不到图片，可能是您的浏览器版本过低，或者换个浏览器试试:)
+
+							</span>
+
+						</div>
+
+					</div>
+					
+					<input type="hidden" name="webid" value="{$webHeader.id}">
+					
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

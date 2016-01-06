@@ -1,0 +1,200 @@
+<div id="dashboard">
+<div class="row-fluid">
+
+	<div onclick="location='{:U('Home/ApMain/aplist')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+			
+			<div   class="dashboard-stat blue">
+
+				<div class="visual">
+
+					<i class="icon-hdd"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">
+
+						Ap 总数
+
+					</div>
+
+					<div class="desc">                           
+						{$indexTj.ap_count}
+						
+
+					</div>
+
+				</div>
+
+				
+				<a class="more" href="javascript:;">
+				详情 <i class="m-icon-swapright m-icon-white"></i>
+				</a>
+				                
+
+			</div>
+
+		</div>
+
+		<div onclick="location='{:U('Home/Dashboard/online')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat green">
+
+				<div class="visual">
+
+					<i class="icon-user"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">认证用户</div>
+
+					<div class="desc">{$indexTj['mac_history_count']+$indexTj['mac_online_count']}</div>
+
+				</div>
+
+				<a class="more" href="javascript:;">
+
+				详情 <i class="m-icon-swapright m-icon-white"></i>
+
+				</a>                 
+
+			</div>
+
+		</div>
+
+		
+		
+		<div onclick="location='{:U('Home/Dashboard/member')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat yellow">
+
+				<div class="visual">
+
+					<i class="icon-th"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">会员管理</div>
+
+					<div class="desc">{$indexTj['agent_count']+$indexTj['user_count']}</div>
+
+				</div>
+
+				<a class="more" href="javascript:;">
+
+				详情<i class="m-icon-swapright m-icon-white"></i>
+
+				</a>                 
+
+			</div>
+
+		</div>
+		
+		<!-- onclick="location='{:U('Dashboard/flowTotle')}'" -->
+		<div onclick="location='{:U('Home/Dashboard/flowTotle')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat purple">
+
+				<div class="visual">
+
+					<i class="icon-th"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">流量统计</div>
+
+					<div class="desc">{$indexTj.bw_up_count}/{$indexTj.bw_down_count}</div>
+
+				</div>
+
+				<a class="more" href="javascript:;">
+
+				详情<i class="m-icon-swapright m-icon-white"></i>
+
+				</a>                 
+
+			</div>
+
+		</div>
+		
+		
+		<div onclick="location='{:U('Home/Dashboard/Msg')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat blue">
+
+				<div class="visual">
+
+					<i class="icon-th"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">短信剩余</div>
+
+					<div class="desc">{$indexTj.short_msg_count}</div>
+
+				</div>
+
+				<a class="more" href="javascript:;">
+
+				详情<i class="m-icon-swapright m-icon-white"></i>
+
+				</a>                 
+
+			</div>
+
+		</div>
+		
+		<div onclick="javascript:alert('功能研发中，敬请期待');"  class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat green">
+
+				<div class="visual">
+
+					<i class="icon-th"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">应用服务</div>
+
+					<div class="desc">批量设置</div>
+
+				</div>
+
+				<a class="more" href="javascript:;">
+
+				详情<i class="m-icon-swapright m-icon-white"></i>
+
+				</a>                 
+
+			</div>
+
+		</div>
+
+	</div>
+	
+</div>
+<script>
+	$(document).ready(function(){
+		/*var dashboard = $("div#dashboard");
+		var old_height = dashboard.css('height');
+		dashboard.css('height','30px').css('z-index','999');
+		dashboard.mouseover(function(){
+			dashboard.animate({height:old_height},500)
+		});
+		dashboard.mouseleave(function(){
+			dashboard.animate({height:'30px'},500)
+		});*/
+		
+	})
+</script>

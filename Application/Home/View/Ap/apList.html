@@ -1,0 +1,131 @@
+<div id="ap" class="row-fluid active">
+
+	<div class="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>AP列表</div>
+
+				<div class="actions">
+
+
+					<div class="btn-group">
+
+						<a class="btn green" href="#" data-toggle="dropdown">
+
+						<i class="icon-cogs"></i> 管理
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu pull-right">
+							<li id="update"><a href="javascript:;"><i class="icon-arrow-up"></i>&nbsp;固件升级</a></li>
+							
+							<li id="restart"><a href="javascript:;"><i class="icon-refresh"></i>&nbsp;重启</a></li>
+							
+							<li id="distribute"><a href="javascript:;"><i class="icon-sitemap"></i>&nbsp;分配</a></li>
+							
+							<li id="batch" data-href="{:U('ApMain/detail')}"><a href="javascript:;"><i class="icon-wrench"></i>&nbsp;管理</a></li>
+							
+							<li id="reset" data-href="{:U('ApMain/reset')}"><a href="javascript:;"><i class="icon-repeat"></i>&nbsp;恢复出厂</a></li>
+							
+							<li id="del" action="{:U('ApMain/recover')}" data-href="{:U('ApMain/recover')}"><a href="javascript:;"><i class="icon-pushpin"></i>&nbsp;收回</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+			<div class="portlet-body">
+
+				<form action="{:U('ApMain/search')}" method="get">
+					<div class="input-append hidden-phone">
+						<input class="m-wrap medium" name="words" value="{$keys}" id="words" type="text"
+							   placeholder="用户名或序列号"
+								/><button
+						type="submit"  id="search" class="btn red"><i class="icon-search"></i>搜索</button>
+					</div>
+
+				</form>
+				<table class="table table-striped table-bordered table-hover" id="sample_3" >
+
+					<thead>
+						
+						<tr>
+							<th class="" style="width:8px;"><input type="checkbox" class="group-checkable checkboxes" data-set="#sample_3 .checkboxes" /></th>
+
+							<th>状态&nbsp;&nbsp;</th>
+
+							<th  class="hidden-480">所属用户</th>
+
+							<th>硬件序列号</th>
+
+							<th  class="hidden-480">固件版本</th>
+
+							<th  class="hidden-480">IP地址</th>
+
+							<th>连接用户</th>
+
+							<th>操作</th>
+
+						</tr>
+						
+					</thead>
+
+					<tbody>
+						
+						<volist name="aplist" id="ap">
+						
+						<tr>
+							<td><input type="checkbox" class="checkboxes" value="{$ap.id}" /></td>
+
+							<td>
+							<if condition="(time()-$ap['lasttime']) gt 90"><label class="alert-error pull-left">停止 </label><else/><label class="alert-success pull-left">正常</label></if>
+							</td>
+							<td><strong>{$ap['user']}</strong></td>
+							<td  class="hidden-480"><a style="display:block;" href="{:U('ApMain/detail',array('id'=>$ap['id'],'gw_id'=>$ap['gw_id']))}">{$ap.hwserial}</a></td>
+
+							<td>{$ap.fw}</td>
+
+							<td>
+								{$ap.lastip}
+							</td>
+
+							<td>
+								{$ap.onUser}
+							</td>
+
+							<td><a style="display:block;" href="{:U('ApMain/detail',array('id'=>$ap['id'],'gw_id'=>$ap['gw_id']))}">详情</a></td>
+
+						</tr>
+						
+						</volist>
+
+					
+					</tbody>
+
+				</table>
+				<span class="help-inline">注：所有信息为AP当前(<label class="alert-success help-inline">正常</label>)或最近一次(<label class="alert-error help-inline">停止</label>)的统计信息，可能存在数据采集延迟</span>
+						<div class="msdn">{$page}</div>
+
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+
+</div>

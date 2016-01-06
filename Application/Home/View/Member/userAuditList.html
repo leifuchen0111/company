@@ -1,0 +1,99 @@
+
+<div class="row-fluid">
+
+	<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box grey">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>新注册信息</div>
+
+				<div class="actions">
+					<eq name="htmlUser['addUser']" value="1"> 
+					<a href="__URL__/addUser" class="btn blue"><i class="icon-pencil"></i> 添加</a>
+					</eq>
+
+					<div class="btn-group">
+
+						<a class="btn green" href="#" data-toggle="dropdown">
+
+						<i class="icon-cogs"></i> 工具
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu pull-right">
+							<li id="edit"><a href="/"></a></li>
+							
+							<li class="auditUser" type="pass" action="__URL__/audit"><a href="javascript:;"><i class="icon-pencil"></i>通过</a></li>
+							
+							<li class="auditUser" type="refuse" action="__URL__/audit"><a href="javascript:;"><i class="icon-trash"></i> 驳回</a></li>
+							
+							<li class="divider"></li>
+
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-striped table-bordered table-hover" id="sample_2">
+
+					<thead>
+
+						<tr>
+
+							<th style="width:8px;"><input type="checkbox" class="group-checkable checkboxes" data-set="#sample_2 .checkboxes" /></th>
+
+							<th>用户名</th>
+
+							<th>公司名称</th>
+
+							<th>注册申请时间</th>
+							
+							<th class="hidden-480">联系人电话</th>
+							
+							<th>详情</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<volist name="userAuditList" id="v">
+						<tr class="odd gradeX">
+
+							<td><input type="checkbox" class="checkboxes" value="{$v.id}" /></td>
+							<td>{$v.name}</td>
+
+							<td>{$v.company_name}</td>
+
+							<td>{$v.lasttime|date="Y-m-d",###}</td>
+
+							<td class="hidden-480">{$v.phone}</td>
+							
+							<td><a href="__URL__/userAuditInfo/id/{$v.id}">详情</td>
+
+						</tr>
+						</volist>
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+</div>

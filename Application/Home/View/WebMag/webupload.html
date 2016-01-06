@@ -1,0 +1,103 @@
+<include file="Public:header_detail" />
+<include file="Public:detailDashboard" />
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>上传文件</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('WebMag/webSave')}" class="form-horizontal" method="post"
+					  enctype="multipart/form-data">
+
+					<div class="control-group">
+
+						<label class="control-label">选择文件</label>
+
+						<div class="controls">
+
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+
+								<div class="input-append">
+
+									<div class="uneditable-input">
+
+										<i class="icon-file fileupload-exists"></i> 
+
+										<span class="fileupload-preview"></span>
+
+									</div>
+
+									<span class="btn btn-file">
+
+									<span class="fileupload-new">选择文件</span>
+
+									<span class="fileupload-exists">修改</span>
+
+									<input type="file" required name="fw" class="default"  />
+
+									</span>
+
+									<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+
+								</div>
+
+							</div>
+
+						</div>
+						<div class="control-group">
+							<label class="control-label">请选择SSID</label>
+							<div class="controls">
+								<select class="large m-wrap" name="ssid" tabindex="1">
+									<volist name="ssid" id="vo">
+
+										<option value="{$vo.ssid}">{$vo.ssid}</option>
+									</volist>
+								</select>
+							</div>
+						</div>
+						<div class="form-actions">
+							<input type="hidden" name="gw_id" value="{$apInfo.gw_id}">
+							<input type="submit" class="btn blue" value="上传">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>
+<include file="Public:footer_detail" />

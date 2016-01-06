@@ -1,0 +1,247 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<div class="tabbable tabbable-custom boxless">
+
+			<div class="tab-content">
+
+				<div class="tab-pane active" id="tab_4">
+
+					<div class="portlet box blue">
+
+						<div class="portlet-title">
+
+							<div class="caption"><i class="icon-reorder"></i>配置项</div>
+							<div class="tools">
+							</div>
+
+						</div>
+
+						<div class="portlet-body form">
+
+							<!-- BEGIN FORM-->
+
+							<form action="{:U('Apconf/baseConfEdit')}" method="post" class="form-horizontal">
+
+								<input type="hidden" name="id" value="{$data['id']}" />
+								<div class="control-group">
+
+									<label class="control-label">在线用户强制下线时间</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="[0-9]{1,11}" placeholder="twifiuser" name="twifiuser" value="{$data['twifiuser']}" class="m-wrap span2">
+
+										<span class="help-inline">秒</span>
+
+									</div>
+
+								</div>
+
+								<div class="control-group">
+
+									<label class="control-label">远程重启更新时间</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="[0-9]{1,11}" placeholder="trestart" name="trestart" value="{$data['trestart']}" class="m-wrap span2">
+
+										<span class="help-inline">秒(0表示不自动重启)</span>
+
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<label class="control-label">开启/关闭认证</label>
+
+									<div class="controls">
+
+										<div class="basic-toggle-button" id="isrecord">
+
+											<input type="checkbox" name="isrecord" class="toggle" value="1" <neq
+												name="data.isrecord" value="">  checked="checked"</neq> />
+
+										</div>
+
+									</div>
+
+								</div>
+								
+								<div class="control-group" id="type">
+
+									<label class="control-label">认证方式</label>
+
+									<div class="controls">
+											<input type="checkbox" name="recordType[]" <php>if(in_array('ph',json_decode($data['isrecord']))){echo 'checked=checked'; }</php>  value="ph" />短信认证
+										
+											<input type="checkbox" id="wx"  name="recordType[]" <php>if(in_array('wx',json_decode($data['isrecord']))){echo 'checked=checked'; }</php>  value="wx" />微信认证
+
+									</div>
+								
+								</div>
+								<div class="control-group wx_id" >
+
+									<label class="control-label">公众号名称</label>
+
+									<div class="controls">
+
+										<input type="text" name="wx_name"  value="{$data.wx_name}" />
+										<span class="help-inline">输入公众号名称，有利于引导用户关注</span>
+									</div>
+
+								</div>
+								
+								<div class="control-group wx_id" >
+
+									<label class="control-label">微信原始ID</label>
+
+									<div class="controls">
+
+											<input type="text" name="wx_id"  value="{$data.wx_id}" />
+											<span class="help-inline">请输入需要关注的微信公众号的原始ID</span>
+									</div>
+								
+								</div>
+								<div class="control-group wx_id">
+									<label class="control-label">appid</label>
+
+									<div class="controls">
+
+											<input type="text" name="appid"  value="{$data.appid}" />
+											<span class="help-inline">请输入需要关注的微信公众号的appid</span>
+									</div>
+								</div>
+								<div class="control-group wx_id">
+									<label class="control-label">appsecret</label>
+
+									<div class="controls">
+
+											<input type="text" name="appsecret"  value="{$data.appsecret}" />
+											<span class="help-inline">请输入需要关注的微信公众号的appsecret</span>
+									</div>
+								</div>
+								<script type="text/javascript"  src="/Public/diyUpload/jquery.js"></script>
+								<link rel="stylesheet" type="text/css" href="/Public/diyUpload/css/webuploader.css">
+								<link rel="stylesheet" type="text/css" href="/Public/diyUpload/css/diyUpload.css">
+								<script type="text/javascript" src="/Public/diyUpload/js/webuploader.html5only.min.js"></script>
+								<script type="text/javascript" src="/Public/diyUpload/js/diyUpload.js"></script>
+								<div class="control-group">
+									<label class="control-label">微信二维码</label>
+									<input type="hidden" name="path" value="">
+									<input type="hidden" name="filename" value="">
+									<div class="controls">
+
+										<div id="demo">
+											<div id="as" > </div>
+										</div>
+										<php>
+											if($data['qrcode'] != ''){
+											echo '<img width="100" src="'.$data['qrcode'].'">';
+											}
+										</php>
+										<span class="label label-important">注意:</span>
+
+										<span>
+
+										  如果看不到图片，可能是您的浏览器版本过低，或者换个浏览器试试:)
+
+										</span>
+
+									</div>
+
+								</div>
+								<script type="text/javascript">
+
+									/*
+									 * 服务器地址,成功返回,失败返回参数格式依照jquery.ajax习惯;
+									 * 其他参数同WebUploader
+									 */
+									$('#as').diyUpload({
+										url:'/Tool/Tool/fileupload/path/{$filepath}',
+										success:function( data ) {
+											$('input[name=path]').val(data.path);
+											$('input[name=filename]').val(data.filename);
+										},
+										error:function( err ) {
+											console.info( err );
+										},
+										buttonText : '点击选择文件',
+										chunked:true,
+										// 分片大小
+										chunkSize:512 * 1024,
+										//最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+										fileNumLimit:1,
+										fileSizeLimit:500000 * 1024,
+										fileSingleSizeLimit:50000 * 1024,
+										accept: {}
+									});
+								</script>
+
+								<div class="control-group">
+
+									<label class="control-label">上行流量限制</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="[0-9]{1,11}" placeholder="bw_up" name="bw_up" value="{$data['bw_up']}" class="m-wrap span2">
+
+										<span class="help-inline">kb</span>
+
+									</div>
+
+								</div>
+
+								<div class="control-group">
+
+									<label class="control-label">下行流量限制</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="[0-9]{1,11}" placeholder="bw_down" name="bw_down" value="{$data['bw_down']}" class="m-wrap span2">
+
+										<span class="help-inline">kb</span>
+
+									</div>
+
+								</div>
+								<div class="control-group">
+
+									<label class="control-label">备注</label>
+
+									<div class="controls">
+
+										<input type="text"  placeholder="备注" name="mark"
+											   value="{$data['mark']}" class="m-wrap span6">
+
+										<span class="help-inline">如位置信息，以便您更好的管理您的设备</span>
+
+									</div>
+
+								</div>
+								<div class="form-actions">
+									
+									<input type="hidden" name="gw_id" value="{$gw_id}" />
+
+									<button type="submit" class="btn blue"><i class="icon-ok"></i> 保存</button>
+
+								</div>
+
+							</form>
+
+							<!-- END FORM-->  
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

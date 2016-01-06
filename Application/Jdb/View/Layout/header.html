@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>路由管理后台</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<meta content="" name="description" />
+
+	<meta content="" name="author" />
+
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="
+	/min/?f=__PUBLIC__/css/bootstrap.min.css,
+	__PUBLIC__/css/bootstrap-responsive.min.css,
+	__PUBLIC__/css/bootstrap-wysihtml5.min.css,
+	__PUBLIC__/css/font-awesome.min.css,
+	__PUBLIC__/css/style-metro.min.css,
+	__PUBLIC__/css/style.min.css,
+	__PUBLIC__/css/style-responsive.min.css,
+	__PUBLIC__/css/default.min.css,
+	__PUBLIC__/css/uniform.default.min.css,
+	__PUBLIC__/css/select2_metro.min.css,
+	__PUBLIC__/css/DT_bootstrap.min.css
+	" rel="stylesheet" type="text/css"/>
+
+	<script src="__PUBLIC__/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+	
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+	<!-- BEGIN HEADER -->
+
+	<div class="header navbar navbar-inverse navbar-fixed-top">
+
+		<!-- BEGIN TOP NAVIGATION BAR -->
+
+		<div class="navbar-inner">
+
+			<div class="container-fluid">
+
+				<!-- BEGIN LOGO -->
+
+				<a class="brand" href="/">
+
+				</a>
+
+				<!-- END LOGO -->
+
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+				<img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+
+				</a>          
+
+				<!-- END RESPONSIVE MENU TOGGLER -->            
+
+				<!-- BEGIN TOP NAVIGATION MENU -->              
+
+				<ul class="nav pull-right">
+
+					<li class="dropdown user">
+
+						<button onclick="location='/Home/WebMag/weblist.html?gw_id={$gw_id}'" class="btn blue"><i class="icon-share-alt"></i>&nbsp;&nbsp;返回站点列表</button>
+
+					</li>
+					
+					<eq name="Think.session.userId" value="1">
+					<li class="dropdown user">
+
+						<button class="btn blue" onclick="location='{:U('Home/Dashboard/postSysnews')}'"><i class="icon-comment-alt"></i>&nbsp;&nbsp;发布系统消息</button>
+
+					</li>
+					</eq>
+					
+					<li class="dropdown user">
+
+						<button onclick="location='/Home/Public/delCache'" class="btn blue"><i class="icon-trash"></i>&nbsp;&nbsp;清除缓存</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button onclick="location='/Home/User/profile'" class="btn blue"><i class="icon-user"></i>&nbsp;&nbsp;个人中心</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button onclick="window.history.go(-1)" class="btn blue"><i class="icon-step-backward"></i>&nbsp;&nbsp;返回</button>
+
+					</li>
+					<li class="dropdown user">
+
+						<button onclick="location='{:U('Home/Public/logOut')}'" class="btn blue"><i class="icon-ban-circle"></i>&nbsp;&nbsp;退出</button>
+
+					</li>
+
+					<!-- END USER LOGIN DROPDOWN -->
+
+				</ul>
+
+				<!-- END TOP NAVIGATION MENU --> 
+
+			</div>
+
+		</div>
+
+		<!-- END TOP NAVIGATION BAR -->
+
+	</div>
+
+	<!-- END HEADER -->
+
+	<!-- BEGIN CONTAINER -->
+
+	<div class="page-container row-fluid">
+
+		<!-- BEGIN SIDEBAR -->
+
+		<div class="page-sidebar nav-collapse collapse">
+
+			<!-- BEGIN SIDEBAR MENU -->        
+
+			<ul class="page-sidebar-menu">
+
+				<li>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+					<div class="sidebar-toggler hidden-phone"></div>
+
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+				</li>
+
+				<li>
+
+				</li>
+
+				<li class="start ">
+
+					<a href="/">
+
+					<i class="icon-home"></i> 
+
+					<span class="title">首页</span>
+
+					</a>
+
+				</li>
+
+				<php>foreach($nav as $k=>$v){</php>
+				<li class="">
+					<a href="javascript:;">
+					<i class="icon-list"></i>
+					<span class="title">{$k}</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<volist name="v" id="vo">
+						<li >
+							<a href="{:U($vo[1],array('gw_id'=>$gw_id,'webid'=>$webid))}">
+								{$vo[0]}
+							</a>
+
+						</li>
+						</volist>
+					</ul>
+				</li>
+				<php>}</php>
+				
+			</ul>
+
+			<!-- END SIDEBAR MENU -->
+
+		</div>
+
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content" >
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<h3 class="page-title">
+
+
+
+						</h3>
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+				

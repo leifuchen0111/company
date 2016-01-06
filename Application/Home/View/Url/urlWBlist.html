@@ -1,0 +1,92 @@
+<include file="Public:header_detail" />
+<include file="Public:detailDashboard" />
+<div class="row-fluid">
+
+	<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box grey">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>URL白名单</div>
+
+				<div class="actions">
+					
+					<a href="__URL__/addUrl" class="btn blue"><i class="icon-pencil"></i> 添加</a>
+
+					<div class="btn-group">
+
+						<a class="btn green" href="#" data-toggle="dropdown">
+
+						<i class="icon-cogs"></i>工具
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu pull-right">
+							<li id="del"
+								action="{:U('Url/del')}"><a href="javascript:;"><i class="icon-trash"></i> 删除</a></li>
+
+							<li class="divider"></li>
+
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-striped table-bordered table-hover" id="sample_2">
+
+					<thead>
+
+						<tr>
+
+							<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
+
+							<th>Id</th>
+
+							<th>Url</th>
+							
+							<th>添加时间</th>
+							
+						
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<volist name="urllist" id="v">
+						<tr class="odd gradeX">
+
+							<td><input type="checkbox" class="checkboxes" value="{$v.id}" /></td>
+							
+							<td>{$v.id}</td>
+							
+							<td><a href="{$v.url}" target="blank">{$v.url|substr="7,10"}</a></td>
+							
+							<td>{$v.updtime|date="Y-m-d",###}</td></tr>
+						</tr>
+						</volist>
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+	
+</div>
+<include file="Public:footer_detail" />

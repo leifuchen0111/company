@@ -1,0 +1,57 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>编辑内容</div>
+
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" class="form-horizontal" method="post">
+
+					<input type="hidden" name="id" value="{$art.id}">
+					<input type="hidden" name="webid" value="{$webid}">
+					<div class="control-group">
+
+						<label class="control-label">内容</label>
+
+						<div class="controls">
+							<textarea class="span12 wysihtml5 m-wrap" name="content" rows="12">{$art.content}</textarea>
+
+						</div>
+
+					</div>
+							
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

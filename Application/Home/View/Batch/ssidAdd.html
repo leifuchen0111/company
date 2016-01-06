@@ -1,0 +1,150 @@
+<include file="Public:header_detail" />
+<include file="Batch:batchDashboard" />
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>添加SSID</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" method="post" id="form_sample_1" class="form-horizontal">
+					
+					<input type="hidden" name="state" value="1">
+					
+					<input type="hidden" name="gw_id" value="{$Think.session.userId}_c">
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写错误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写成功
+
+							</div>
+
+							<div class="tab-pane active" id="tab1">
+
+								<h3 class="block">填写热点信息</h3>
+
+								<div class="control-group">
+
+									<label class="control-label">热点名称<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" pattern="\S{3,15}" class="span6 m-wrap" placeholder="Ssid" name="ssid">
+
+										<span class="help-inline">3-15位,禁空格</span>
+
+									</div>
+
+								</div>
+
+								<div class="control-group">
+
+									<label class="control-label">频道<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<select class="large m-wrap" name="channel" required tabindex="1">
+											
+											<option value="5g">5g</option>
+											
+											<option value="2.4g">2.4g</option>
+
+										</select>
+										
+										<span class="help-inline">选择热点的频道</span>
+									
+									</div>
+
+								</div>
+								
+								<div class="control-group">
+
+									<label class="control-label">密码(<span class="required">选填</span>)</label>
+
+									<div class="controls">
+										
+										<input type="password" pattern="[0-9a-zA-Z]{8,15}" class="span6 m-wrap" placeholder="热点密码" name="psd">
+
+										<span class="help-inline">8-15位,字母和数字组合，留空表示不设置密码</span>
+									
+									</div>
+
+								</div>
+								
+								<div class="control-group">
+
+									<label class="control-label">删除非通用SSID(<span class="required">选填</span>)</label>
+
+									<div class="controls">
+										
+										<input type="checkbox"  name="delAll" value=1>
+
+										<span class="help-inline">勾选之后，所有路由器中，不是通用的SSID将会失效</span>
+									
+									</div>
+
+								</div>
+								
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+							
+							<input type="submit" value="提交" class="btn blue" />
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
+<include file="Public:footer_detail" />

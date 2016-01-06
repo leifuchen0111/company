@@ -1,0 +1,136 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN PORTLET-->   
+
+		<div class="portlet box blue">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>广告添加</div>
+				<div class="actions">
+					<a href="{:U('Ads/ads',array('gw_id'=>$gw_id,'webid'=>$webid))}" class="btn red"><i class="icon-long-arrow-left"></i>广告列表</a>
+				</div>
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+					<input type="hidden" name="webid" value="{$webid}">
+					<input type="hidden" name="id" value="{$ad.id}">
+
+					<div class="control-group">
+
+						<label class="control-label">排序<span class="required">*</span></label>
+
+						<div class="controls">
+
+							<input type="text"  required class="span6 m-wrap" value="{$ad.displayorder}" name="displayorder">
+
+							<span class="help-inline">指定显示的先后顺便，1-999之间的整数</span>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">链接</label>
+
+						<div class="controls">
+
+							<input type="text"  class="span6 m-wrap" value="{$ad.link}" name="link">
+
+						</div>
+
+					</div>
+					<script type="text/javascript"  src="/Public/diyUpload/jquery.js"></script>
+					<link rel="stylesheet" type="text/css" href="/Public/diyUpload/css/webuploader.css">
+					<link rel="stylesheet" type="text/css" href="/Public/diyUpload/css/diyUpload.css">
+					<script type="text/javascript" src="/Public/diyUpload/js/webuploader.html5only.min.js"></script>
+					<script type="text/javascript" src="/Public/diyUpload/js/diyUpload.js"></script>
+					<div class="control-group">
+						<label class="control-label">广告图片</label>
+						<input type="hidden" name="image" value="{$ad.img}">
+
+						<div class="controls">
+
+							<div id="demo">
+								<div id="as" > </div>
+							</div>
+							<span class="label label-important">注意:</span>
+
+										<span>
+
+										  建议尺寸：650*230,单位像素(px)，格式jpg、png
+
+										</span>
+
+						</div>
+
+					</div>
+					<script type="text/javascript">
+
+						/*
+						 * 服务器地址,成功返回,失败返回参数格式依照jquery.ajax习惯;
+						 * 其他参数同WebUploader
+						 */
+						$('#as').diyUpload({
+							url:'/Tool/Tool/fileupload/path/{$uplodPath}',
+							success:function( data ) {
+								$('input[name=image]').val(data.path+data.filename);
+							},
+							error:function( err ) {
+								console.info( err );
+							},
+							buttonText : '点击选择文件',
+							chunked:true,
+							// 分片大小
+							chunkSize:512 * 1024,
+							//最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+							fileNumLimit:1,
+							fileSizeLimit:500000 * 1024,
+							fileSingleSizeLimit:50000 * 1024,
+							accept: {}
+						});
+					</script>
+					<neq name="ad.image" value="">
+						<div class="control-group">
+
+							<label class="control-label">图片预览</label>
+
+							<div class="controls">
+
+								<img src="{$ad.image}" />
+
+							</div>
+
+						</div>
+					</neq>
+					<div class="control-group">
+						
+						<div class="form-actions">
+
+							<input type="submit" class="btn blue" value="提交">
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->  
+
+			</div>
+
+		</div>
+
+		<!-- END PORTLET-->
+
+	</div>
+
+</div>

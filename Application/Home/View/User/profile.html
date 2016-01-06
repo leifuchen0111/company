@@ -1,0 +1,226 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>个人资料</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('User/profileSave')}" method="post" id="form_sample_1" class="form-horizontal" >
+					<div class="form-wizard">
+
+						<input type="hidden" name="id" value="{$user.id}">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息有误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写成功
+
+							</div>
+
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">用户名</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="[0-9a-zA-Z_]{5,15}"  value="{$user.name}" readonly class="span6 m-wrap" required placeholder="角色名">
+										<span class="help-inline">包含数字、字母和下划线，长度介于5到15位</span>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">密码</label>
+
+									<div class="controls">
+
+										<input type="password" pattern="\S{6,}" name="pass" value="" class="span6 m-wrap" placeholder="新密码">
+										<span class="help-inline">如不修改密码，此项请留空,最低6位，不支持空格</span>
+
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">确认新密码</label>
+
+									<div class="controls">
+
+										<input type="password" pattern="\S{6,}"  value="" name="repass"
+											   class="span6 m-wrap" placeholder="确认新密码">
+										<span class="help-inline">如不修改密码，此项请留空,最低6位，不支持空格</span>
+
+									</div>
+
+								</div>
+
+							</div>
+							
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">邮箱</label>
+
+									<div class="controls">
+
+										<input type="email"   value="{$user.email}"  class="span6 m-wrap" name="email">
+										
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">电话</label>
+
+									<div class="controls">
+
+										<input type="text" pattern="1[3|4|5|8]{1}[0-9]{9}"  value="{$user.phone}"  class="span6 m-wrap" name="phone">
+										
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">地址</label>
+
+									<div class="controls">
+
+										<input type="text" value="{$user.address}"  class="span6 m-wrap" name="address">
+										
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">公众号原始ID</label>
+
+									<div class="controls">
+
+										<input type="text" value="{$wx_id}"  class="span6 m-wrap" name="wx_id">
+										<span class="help-inline">公众管理平台 > 个人中心 > 原始ID</span>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">上次登录时间</label>
+
+									<div class="controls">
+
+										<input type="text"  value="{$Think.session.lasttime}" readonly class="span6 m-wrap">
+
+									</div>
+
+								</div>
+
+							</div>
+							<div class="tab-pane active">
+
+
+								<div class="control-group">
+
+									<label class="control-label">上次登录IP</label>
+
+									<div class="controls">
+
+										<input type="text"  value="{$Think.session.lastip}" readonly class="span6 m-wrap">
+
+									</div>
+
+								</div>
+
+							</div>
+							
+							
+					
+						</div>
+						<div class="form-actions clearfix">
+							<input type="submit" value="提交" class="btn blue" />
+
+						</div>
+						
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>

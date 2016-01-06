@@ -1,0 +1,90 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i><eq name="type" value="white">URL白名单<else/>URL黑名单</eq></div>
+
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" method="post" id="form_sample_1" class="form-horizontal">
+					
+					<div class="form-wizard">
+						
+						<input type="hidden" name="gwId" value="{$apInfo.gw_id}" />
+					
+						<input type="hidden" name="utype" value="{$utype}" />
+						
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息错误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								填写正确
+
+							</div>
+
+							<div class="tab-pane active">
+
+								<h3 class="block">填写详细信息</h3>
+
+								<div class="control-group">
+
+									<label class="control-label">域名<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" class="span6 m-wrap"
+											   pattern="[a-zA-Z0-2-9-]+\.[a-zA-Z0-2-9-]+.+"
+											   placeholder="URL地址" name="url">
+
+										<span class="help-inline">请填写域名，不要http(s)://头,例：www.***.com</span>
+
+									</div>
+
+								</div>
+								
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+						
+							<input type="submit" value="提交" class="btn blue" />
+
+						</div>
+
+					</div>
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>

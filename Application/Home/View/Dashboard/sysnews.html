@@ -1,0 +1,37 @@
+<volist name="sysnews" id="item">
+
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>{$item.title} {$item.posttime|date="Y/m/d",###}</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="expand"></a>
+
+
+				</div>
+
+			</div>
+			
+			
+			<div class="portlet-body" style="display:none;">
+				{$item.content}
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
+
+</volist>

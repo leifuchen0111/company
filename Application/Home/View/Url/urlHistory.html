@@ -1,0 +1,103 @@
+<include file="Public:header_detail" />
+<include file="Public:detailDashboard" />
+<div class="row-fluid">
+
+	<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+		<div class="portlet box grey">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-user"></i>Table</div>
+
+				<div class="actions">
+					<eq name="htmlUser['addUser']" value="1"> 
+					<a href="__URL__/addUser" class="btn blue"><i class="icon-pencil"></i> Add</a>
+					</eq>
+
+					<div class="btn-group">
+
+						<a class="btn green" href="#" data-toggle="dropdown">
+
+						<i class="icon-cogs"></i> Tools
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu pull-right">
+							<eq name="htmlUser['editUser']" value="1">
+							<li id="edit"><a href="__URL__/editUsers/id/"><i class="icon-pencil"></i> Edit</a></li>
+							</eq>
+							<eq name="htmlUser['delUser']" value="1">
+							<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+							</eq>
+							<eq name="htmlUser['banUser']" value="1">
+							<li><a href="#"><i class="icon-ban-circle"></i>Ban</a></li>
+							</eq>
+							<li class="divider"></li>
+
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body">
+
+				<table class="table table-striped table-bordered table-hover" id="sample_2">
+
+					<thead>
+
+						<tr>
+
+							<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
+
+							<th>Id</th>
+
+							<th class="hidden-480">Url</th>
+							
+							<th>Mac</th>
+						
+							<th class="hidden-480">VisitTime</th>
+							
+							<th>StayTime</th>
+							
+						</tr>
+
+					</thead>
+
+					<tbody>
+						<volist name="maclist" id="v">
+						<tr class="odd gradeX">
+
+							<td><input type="checkbox" class="checkboxes" value="{$v.id}" /></td>
+							
+							<td>{$v.id}</td>
+							
+							<td  class="hidden-480"><a href="{$v.url}">{$v.url|substr="7,10"}</a></td>
+							
+							<td>{$v.mac}</td>
+							
+							<td  class="hidden-480">{$v.vtime|date="Y-m-d H:i:s",###}</td>
+							
+							<td>{$v.stime|str_time}</td>										</tr>
+						</volist>
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+		<!-- END EXAMPLE TABLE PORTLET-->
+
+	</div>
+</div>
+<include file="Public:footer_detail" />

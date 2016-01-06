@@ -1,0 +1,148 @@
+<div id="dashboard">
+<div class="row-fluid">
+		
+		<div onclick="location='{:U('ApMain/apList')}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+			
+			<div   class="dashboard-stat yellow">
+
+				<div class="visual">
+
+					<i class="icon-reorder"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">
+
+						路由列表
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+		<div
+				onclick="location='{:U('ApMain/detail',array('gw_id'=>$apInfo['gw_id'],'id'=>$apInfo['id']))}'"
+			 class="span2 responsive" data-tablet="span2" data-desktop="span2">
+			
+			<div   class="dashboard-stat blue">
+
+				<div class="visual">
+
+					<i class="icon-hdd"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">
+
+						运行状态
+
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+		</div>
+		
+				<div
+						onclick="location='{:U('Apconf/baseConf',array('gw_id'=>$apInfo['gw_id'],'id'=>$apInfo['id']))}'" class="span2 responsive" data-tablet="span2" data-desktop="span2">
+			
+			<div   class="dashboard-stat green">
+
+				<div class="visual">
+
+					<i class="icon-wrench"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">
+
+						参数设置
+
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div onclick="location='{:U('Mac/macOnline',array('gw_id'=>$apInfo['gw_id'],'id'=>$apInfo['id']))}'"
+			 class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat green">
+
+				<div class="visual">
+
+					<i class="icon-user"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">在线用户</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div onclick="location='{:U('Ssid/ssidList',array('gw_id'=>$apInfo['gw_id'],'id'=>$apInfo['id']))}'"
+			 class="span2 responsive" data-tablet="span2  fix-offset" data-desktop="span2">
+
+			<div class="dashboard-stat blue">
+
+				<div class="visual">
+
+					<i class="icon-rss"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">热点管理</div>
+
+				</div>
+				
+			</div>
+
+		</div>
+
+		<div onclick="location='{:U('WebMag/weblist',array('gw_id'=>$apInfo['gw_id'],'id'=>$apInfo['id']))}'"
+			 class="span2 responsive" data-tablet="span2" data-desktop="span2">
+
+			<div class="dashboard-stat yellow">
+
+				<div class="visual">
+
+					<i class="icon-th"></i>
+
+				</div>
+
+				<div class="details">
+
+					<div class="number">媒体管理</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

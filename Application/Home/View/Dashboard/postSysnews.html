@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/plugins/code/prettify.css" />
+
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+
+<script charset="utf-8" src="__PUBLIC__/kindeditor/plugins/code/prettify.js"></script>
+
+<script>
+	KindEditor.ready(function(K) {
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '__PUBLIC__/kindeditor/plugins/code/prettify.css',
+			
+			allowFileManager : true,
+			afterCreate : function() {
+				var self = this;
+				K.ctrl(document, 13, function() {
+					self.sync();
+					K('form[id=form_sample_1]')[0].submit();
+				});
+				K.ctrl(self.edit.doc, 13, function() {
+					self.sync();
+					K('form[id=form_sample_1]')[0].submit();
+				});
+			}
+		});
+		prettyPrint();
+	});
+</script>
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i>发布系统消息</div>
+
+				<div class="tools">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="__ACTION__" method="post" id="form_sample_1" class="form-horizontal" >
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息有误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写成功
+
+							</div>
+
+							<div class="tab-pane active">
+
+								<h3 class="block">填写详细信息</h3>
+
+								<div class="control-group">
+
+									<label class="control-label">消息标题<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" class="span6 m-wrap" required placeholder="标题" name="title">
+
+									</div>
+
+								</div>
+								
+								<div class="control-group">
+
+									<label class="control-label">消息内容<span class="required">*</span></label>
+
+									<div class="controls">
+										<textarea name="content"></textarea>
+
+									</div>
+
+								</div>
+
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+							
+							<button class="btn blue">提交</button>
+
+						</div>
+
+					</div>
+		
+
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>

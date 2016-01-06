@@ -1,0 +1,275 @@
+<include file="Public:header_detail" />
+<include file="Public:detailDashboard" />
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<div class="portlet box blue" id="form_wizard_1">
+
+			<div class="portlet-title">
+
+				<div class="caption">
+
+					<i class="icon-reorder"></i> 自助建站<span class="step-title"> 3-1</span>
+
+				</div>
+
+				<div class="tools hidden-phone">
+
+					<a href="javascript:;" class="collapse"></a>
+
+					<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+					<a href="javascript:;" class="reload"></a>
+
+					<a href="javascript:;" class="remove"></a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<form action="{:U('Webbuild/webAdd')}" method="post" enctype="multipart/form-data" class="form-horizontal" id="submit_form" novalidate="novalidate">
+
+					<input type="hidden" name="gw_id" value="{$apInfo.gw_id}">
+
+					<input type="hidden" name="rid" value="{$route.id}">
+
+					<div class="form-wizard">
+
+						<div class="navbar steps">
+
+							<div class="navbar-inner">
+
+								<ul class="row-fluid nav nav-pills">
+
+									<li class="span6 active">
+
+										<a href="#tab3" data-toggle="tab" class="step active">
+
+										<span class="number">1</span>
+
+										<span class="desc"><i class="icon-ok"></i> 选择模板</span>
+
+										</a>
+
+									</li>
+
+									<li class="span6">
+
+										<a href="#tab4" data-toggle="tab" class="step">
+
+										<span class="number">2</span>
+
+										<span class="desc"><i class="icon-ok"></i>选择热点</span>
+
+										</a>
+
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+						<div id="bar" class="progress progress-success progress-striped">
+
+							<div class="bar" style="width: 25%;"></div>
+
+						</div>
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写错误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								恭喜您，信息填写正切
+
+							</div>
+
+							<div class="" id="tab3">
+
+								<h3 class="block">请选择具体模板</h3>
+
+							 	<volist name="tpl" id="value">
+
+								<div class="row-fluid">
+
+								<volist name="value" id="item" key="k">
+
+									<div class="span3 button-next" onclick="choiceTpl($(this))">
+
+										<div class="item">
+
+											<a class="fancybox-button"  data-rel="fancybox-button"  title="{$item.tpl_name}" href="javascript:;">
+
+												<div class="zoom">
+
+													<img src="{$item.screenshot}" class="selecttpl" alt="{$item.tpl_name}" title="{$item.tpl_name}">
+
+													<div class="zoom-icon"></div>
+
+												</div>
+
+											</a>
+
+											<div class="details">
+												<label class="radio">
+												 <input type="radio" name="tpl_name" value="{$item.tpl_name}" />{$item.tpl_name}
+												</label>
+												<label>
+													<span class="help-block">{$item.intro}</span>
+												</label>
+											</div>
+
+
+										</div>
+
+									</div>
+
+								</volist>
+
+								</div>
+
+								<div class="space10"></div>
+
+								</volist>
+
+
+
+							</div>
+
+							<script>
+								var choiceTpl = function(e){
+									e.children().find("input").attr('checked',true);
+									e.children().find("span").addClass('checked');
+								}
+							</script>
+
+							<div class="tab-pane" id="tab4">
+
+								<div class="control-group">
+
+									<label class="control-label">对应热点</label>
+
+									<div class="controls">
+
+											<input type="checkbox"  name="selectAll"  data-set="#sample_1 .checkboxes" >全选<br/>
+
+											<volist name="ssid" id="item">
+												<span class="span6"><input  type="checkbox" class="myChecked" name="ssid[]" value="{$item.ssid}_{$item.gw_id}">{$item.gw_id}-{$item.ssid} ({$item.channel})</span>
+											<!-- 	<option value="{$item.ssid}">{$item.ssid} ({$item.channel})</option>
+											 -->
+											</volist>
+
+										<span class="help-inline">选择应用SSID(多选)</span>
+
+									</div>
+
+								</div>
+
+							</div>
+							<script>
+								$(document).ready(function(){
+
+									$("input[name='selectAll']").click(function(){
+
+										if($(this).prop('checked')){
+
+											$("div.checker span").addClass('checked')
+											$("div.checker span input").prop('checked',true)
+										}
+
+									})
+
+								})
+							</script>
+
+						</div>
+
+						<div class="form-actions clearfix">
+
+							<a href="javascript:;" class="btn button-previous" style="display: none;">
+
+							<i class="m-icon-swapleft"></i> 上一步
+
+							</a>
+
+							<a href="javascript:;" class="btn blue button-next">
+
+							下一步 <i class="m-icon-swapright m-icon-white"></i>
+
+							</a>
+
+							<a href="javascript:;" class="btn green button-submit" style="display: none;">
+
+							提交 <i class="m-icon-swapright m-icon-white"></i>
+
+							</a>
+
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+				<!-- END PAGE CONTENT-->         
+
+</div>
+<script src="/min/?f=
+	__PUBLIC__/js/jquery-1.10.1.min.js,
+	__PUBLIC__/js/jquery-ui-1.10.1.custom.min.js,
+	__PUBLIC__/js/bootstrap.min.js,
+	__PUBLIC__/js/jquery.slimscroll.min.js,
+	__PUBLIC__/js/jquery.blockui.min.js,
+	__PUBLIC__/js/jquery.cookie.min.js,
+	__PUBLIC__/js/jquery.uniform.min.js,
+	__PUBLIC__/js/jquery.validate.min.js,
+	__PUBLIC__/js/additional-methods.min.js
+"></script>
+<script src="/min/?f=
+	__PUBLIC__/js/jquery.bootstrap.wizard.min.js,
+	__PUBLIC__/js/chosen.jquery.min.js,
+	__PUBLIC__/js/select2.min.js,
+	__PUBLIC__/js/app.min.js,
+	__PUBLIC__/js/form-wizard.min.js,
+	__PUBLIC__/js/route.min.js
+"></script>
+
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/js/excanvas.min.js"></script>
+<script src="__PUBLIC__/js/respond.min.js"></script>
+<![endif]-->
+<script>
+	jQuery(document).ready(function() {
+		// initiate layout and plugins
+		App.init();
+		FormWizard.init();
+	});
+</script>
+
+	<!-- END JAVASCRIPTS -->   
+
+
+<!-- END BODY -->
+
+</html>

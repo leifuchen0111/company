@@ -1,0 +1,138 @@
+<div class="row-fluid">
+
+	<div class="span12">
+
+		<!-- BEGIN VALIDATION STATES-->
+
+		<div class="portlet box purple">
+
+			<div class="portlet-title">
+
+				<div class="caption"><i class="icon-reorder"></i><eq name="cate.id" value="">添加<else/>修改</eq>{$types[$type]}分类
+				</div>
+
+				<div class="actions">
+
+					<a class="btn blue" href="{:U('CatePro/cate',array('webid'=>$webid,'gw_id'=>$gw_id,'type'=>$type))}">返回分类列表</a>
+
+				</div>
+
+			</div>
+
+			<div class="portlet-body form">
+
+				<!-- BEGIN FORM-->
+
+				<form action="{:U('save')}" method="post" enctype="multipart/form-data" id="form_sample_1"
+					  class="form-horizontal" novalidate="novalidate">
+					
+					<input type="hidden" name="webid" value="{$webid}">
+					<input type="hidden" name="id" value="{$cate.id}">
+					<input type="hidden" name="type" value="{$type}">
+					
+					
+					<div class="form-wizard">
+
+						<div class="tab-content">
+
+							<div class="alert alert-error hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息有误，请检查
+
+							</div>
+
+							<div class="alert alert-success hide">
+
+								<button class="close" data-dismiss="alert"></button>
+
+								信息填写成功
+
+							</div>
+
+							<div class="tab-pane active" id="tab1">
+
+								<div class="control-group">
+
+									<label class="control-label">父级分类<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<select name="pid">
+											<option value="0">作为一级分类</option>
+											<volist name="cates" id="vo">
+												<option <eq name="vo.id" value="$cate['pid']">selected</eq>
+												value="{$vo.id}">{$vo.category}</option>
+											</volist>
+										</select>
+
+									</div>
+
+								</div>
+
+								<div class="control-group">
+
+									<label class="control-label">分类名称<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="text" class="span6 m-wrap" value="{$cate.category}" required
+											   placeholder="分类名称"
+											   name="category">
+
+									</div>
+
+								</div>
+								<eq name="type" value="menu">
+								<div class="control-group">
+
+									<label class="control-label">上传封面图片<span class="required">*</span></label>
+
+									<div class="controls">
+
+										<input type="file" class="span6 m-wrap" required name="cover_img">
+										<span class="help-inline">建议尺寸，180*110，单位像素(px)</span>
+									</div>
+
+								</div>
+									</eq>
+								<neq name="cate.image" value="">
+									<div class="control-group">
+
+										<label class="control-label">封面图片</label>
+
+										<div class="controls">
+											<img src="{$cate.image}" width="100">&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn blue" href="{$vo.image}" target="_blank">查看大图</a>
+										</div>
+
+									</div>
+
+								</neq>
+
+							</div>
+					
+						</div>
+
+						<div class="form-actions clearfix">
+							<input type="submit" value="提交" class="btn blue" />
+
+						</div>
+
+					</div>
+		
+
+
+				</form>
+
+				<!-- END FORM-->
+
+			</div>
+
+		</div>
+
+		<!-- END VALIDATION STATES-->
+
+	</div>
+
+</div>
